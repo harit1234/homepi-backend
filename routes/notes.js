@@ -6,7 +6,10 @@ var bodyparser = require('body-parser');
 router.use(bodyparser.urlencoded({extended:true}))
 router.use(bodyparser.json())
 
-router.get('/getnotes/:id',(req,res)=>{
+var tokencheck = require('./tokenverify')
+var tokenverify = tokencheck.tokenverify
+
+router.get('/getnotes/:id',tokenverify,(req,res)=>{
     var param = req.params.id.substring(2)
     var reqNotes = knightdb.find({username:param},(err,doc)=>{
         // console.log(doc,req.params.id)
@@ -25,7 +28,7 @@ router.get('/getnotes/:id',(req,res)=>{
     
    })
 
-router.post('/postnote/:id',(req,res)=>
+router.post('/postnote/:id',tokenverify,(req,res)=>
 {
     var param = req.params.id.substring(2)
     var newnote = {
@@ -45,7 +48,7 @@ router.post('/postnote/:id',(req,res)=>
 })
 
 
-router.post('/deletenote/:id',(req,res)=>{
+router.post('/deletenote/:id',tokenverify,(req,res)=>{
     var param = req.params.id.substring(2)
     knightdb.update({username:param},{$pull:{Notes:{heading:req.body.heading,content:req.body.content}}},{safe:true},()=>{
         res.json
