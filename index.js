@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 // db connection
-mongoose.connect('mongodb://localhost:27017/home-pi',{useNewUrlParser: true},(err)=>{
+mongoose.connect('mongodb://harit:dhruvsumi123@ds163162.mlab.com:63162/homepi-harit',{useNewUrlParser: true},(err)=>{
     if(err){console.log(err)}
     else{
         console.log('connected to db')
