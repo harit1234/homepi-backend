@@ -24,7 +24,9 @@ var knightdb = require('./models/knightCredentials');//model schema
 var parser = require('body-parser')
 app.use(parser.json());
 app.use(parser.urlencoded({extended:true}));
+var jwt = require('jsonwebtoken')
 
+//knightSignin request
 app.post('/',(req,res)=>{
     if(!req.body.username || !req.body.password)
     {
@@ -48,8 +50,10 @@ app.post('/',(req,res)=>{
                     })
                 }
                 else{
+                    var token = jwt.sign({foo:req.body.username},'secret')
                     res.json({
-                        msg: "loggedin"
+                        msg: "loggedin",
+                        token: token
                     })
                 }
             }
