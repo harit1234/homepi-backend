@@ -40,10 +40,11 @@ router.post('/postnote/:id',tokenverify,(req,res)=>
 
         knightdb.update({username:param},{$push:{Notes:newnote}},()=>{console.log("pushed")});    //push newnote in db    
         res.json({
-        msg : 'ok'
+        msg : 'ok'+req.body.heading
     })}
+    
     else{
-        res.json({msg:'not ok'})
+        res.json({msg:'req.body is to weird for db'+req.body.heading})
     }
 })
 

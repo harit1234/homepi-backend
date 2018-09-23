@@ -13,10 +13,8 @@ var knightID = new Schema (
             required:true,
             unique:true
         },
-        Messages:[{source:String,message:String}],
+        Messages:[{Source:String,Message:String}],
         Notes:[{heading:String,content:String}]
-
-
     })
 
 module.exports = mongoose.model('knightid' , knightID);

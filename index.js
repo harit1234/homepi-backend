@@ -65,4 +65,9 @@ app.post('/',(req,res)=>{
 
 var notes = require('./routes/notes')//route file
 app.use('/notes',notes); //route direct
+
+var chats = require('./routes/chats')
+app.use('/chats',chats)
+
+
 module.exports = app;
