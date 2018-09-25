@@ -11,7 +11,8 @@ router.get('hcswitch/:id',(req,res)=>{
     if(req.body.switch1 == true)
     {
         res.json({
-            result : gpio.defaulton
+            result : gpio.defaulton()
         })
     }
 })
+module.exports = router
