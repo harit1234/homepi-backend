@@ -69,5 +69,6 @@ app.use('/notes',notes); //route direct
 var chats = require('./routes/chats')
 app.use('/chats',chats)
 
-
+var hc = require('./routes/hc')
+app.use('/hc',hc)
 module.exports = app;

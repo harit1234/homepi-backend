@@ -14,6 +14,7 @@ var knightID = new Schema (
             unique:true
         },
         Messages:[{Source:String,Message:String}],
+        deletedmsg:[{index:Number}],
         Notes:[{heading:String,content:String}]
     })
 

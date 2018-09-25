@@ -7,7 +7,7 @@ router.use(parser.urlencoded({extended:true}));
 
 exports.tokenverify = (req,res,next)=>{
     jwt.verify(req.headers.token,'secret',(err,value)=>{
-        console.log('req rec');
+        console.log('req rec from tokenverify');
         console.log(value)
         var param = req.params.id.substring(2)
         if(value){
