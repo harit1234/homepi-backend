@@ -1,0 +1,12 @@
+import RPi.GPIO as gpio
+
+gpio.setmode(gpio.BCM)
+gpio.setmode(18,gpio.OUT)
+
+value = true
+
+if(value)
+ gpio.output(18,HIGH)
+
+else
+ gpio.output(18,LOW)
