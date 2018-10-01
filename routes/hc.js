@@ -6,8 +6,9 @@ router.use(bodyparser.json())
 router.use(bodyparser.urlencoded({extended:true}))
 
 var spawn = require('child_process').spawn
+var tokenverify = require('./tokenverify')
 
-router.post('',(req,res)=>{
+router.post('',tokenverify.tokenverify,(req,res)=>{
     buttonStatus = req.body.buttonStatus
     console.log(buttonStatus)
     let python = spawn('python',['/home/pi/Desktop/homepi/backend/homepi-backend/routes/gpio.py',buttonStatus])
