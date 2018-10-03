@@ -12,4 +12,3 @@ elif sys.argv[1]=='false':
     gpio.output(11,False)
     sys.stdout.write('done')
     print(sys.argv[1])
-    
