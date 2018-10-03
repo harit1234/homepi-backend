@@ -10,6 +10,7 @@ exports.tokenverify = (req,res,next)=>{
         console.log('req rec from tokenverify');
         console.log(value)
         var param = req.params.id.substring(2)
+	console.log(param);
         if(value){
             if(value.foo == param){
                 next();
