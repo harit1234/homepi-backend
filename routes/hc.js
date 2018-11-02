@@ -18,7 +18,7 @@ router.post('/:id',tokenverify.tokenverify,(req,res)=>{
         console.log('success'+ data)
     })
     python.stderr.on('data',(data)=>{
-        console.log('failure '+data)
+        console.log('failure '+ data)
     })
 })
 
