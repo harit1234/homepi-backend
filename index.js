@@ -9,7 +9,11 @@ mongoose.connect('mongodb://harit:dhruvsumi123@ds163162.mlab.com:63162/homepi-ha
     }
 })
 //server listening
-app.listen(3000,'0.0.0.0',()=>{
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port,()=>{
     console.log('connected')
 });
 //cors headers config
